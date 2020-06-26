@@ -6,7 +6,13 @@ namespace ThirdProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            (double x, double y) point;
+            double x, y;
+
+            Console.Write("Enter cooreds of point \n x: ");
+            point.x = Convert.ToDouble(Console.ReadLine());
+            Console.Write(" y: ");         
+            point.y = Convert.ToDouble(Console.ReadLine());         
         }
     }
 }
