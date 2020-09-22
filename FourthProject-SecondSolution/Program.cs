@@ -4,9 +4,9 @@ namespace SeventhProject
 {
     class Time
     {
-        byte hours, minutes, seconds;
+        int hours, minutes, seconds;
 
-        public byte Hours
+        public int Hours
         {
             set
             {
@@ -15,7 +15,7 @@ namespace SeventhProject
             }
             get { return hours; }
         }
-        public byte Minutes
+        public int Minutes
         {
             set
             {
@@ -24,7 +24,7 @@ namespace SeventhProject
             }
             get { return minutes; }
         }
-        public byte Seconds
+        public int Seconds
         {
             set
             {
@@ -37,13 +37,13 @@ namespace SeventhProject
         public Time() : this(0)
         {
         }
-        public Time(byte hours) : this(hours, 0)
+        public Time(int hours) : this(hours, 0)
         {
         }
-        public Time(byte hours, byte minutes) : this(hours, minutes, 0)
+        public Time(int hours, int minutes) : this(hours, minutes, 0)
         {
         }
-        public Time(byte hours, byte minutes, byte seconds)
+        public Time(int hours, int minutes, int seconds)
         {
             this.Hours = hours;
             this.Minutes = minutes;
@@ -66,19 +66,44 @@ namespace SeventhProject
         {
             setTime(0);
         }
-        public void setTime(byte hours)
+        public void setTime(int hours)
         {
             setTime(hours, 0);
         }
-        public void setTime(byte hours, byte minutes)
+        public void setTime(int hours, int minutes)
         {
             setTime(hours, minutes, 0);
         }
-        public void setTime(byte hours, byte minutes, byte seconds)
+        public void setTime(int hours, int minutes, int seconds)
         {
             this.Hours = hours;
             this.Minutes = minutes;
             this.Seconds = seconds;
+        }
+
+        public void addExactHourValue(int addedValue)
+        {
+            if (hours + addedValue >= 24) hours = (hours + addedValue) % 24;
+            else hours += addedValue;
+        }
+        public void addExactMinutesValue(int addedValue)
+        {
+            if (minutes + addedValue >= 60)
+            {
+                minutes = (minutes + addedValue) % 60;
+                addExactHourValue((minutes + addedValue) / 60);
+            }
+            else minutes += addedValue;
+        }
+
+        public void addExactSecondsValue(int addedValue)
+        {
+            if (seconds + addedValue >= 60)
+            {
+                seconds = (seconds + addedValue) % 60;
+                addExactMinutesValue((seconds + addedValue) / 60);
+            }
+            else seconds += addedValue;
         }
     }
     class Program
@@ -92,6 +117,11 @@ namespace SeventhProject
             uaTime.getTime();
 
             uaTime.Seconds = 59;
+            uaTime.getTime();
+
+            uaTime.addExactHourValue(2);
+            uaTime.addExactMinutesValue(600);
+            uaTime.addExactSecondsValue(22);
             uaTime.getTime();
         }
     }
