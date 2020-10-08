@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstProject", "FirstProject\FirstProject.csproj", "{9535F480-579B-4312-9D74-26F913EDBA4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractHandler", "AbstractHandler\AbstractHandler.csproj", "{ABF83F4D-7D3F-41C8-B1AE-88B0FD555151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractHandler", "AbstractHandler\AbstractHandler.csproj", "{ABF83F4D-7D3F-41C8-B1AE-88B0FD555151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{3A56DC62-AD31-404F-B23A-491D21C20122}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{ABF83F4D-7D3F-41C8-B1AE-88B0FD555151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF83F4D-7D3F-41C8-B1AE-88B0FD555151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABF83F4D-7D3F-41C8-B1AE-88B0FD555151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A56DC62-AD31-404F-B23A-491D21C20122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A56DC62-AD31-404F-B23A-491D21C20122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A56DC62-AD31-404F-B23A-491D21C20122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A56DC62-AD31-404F-B23A-491D21C20122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
