@@ -2,26 +2,62 @@
 
 namespace SeventhProject
 {
+    class Rectengular
+    {
+        double Side1 { get; set; }
+        double Side2 { get; set; }
+        public double Perimert 
+        {
+            get
+            {
+                return this.Perimeter();
+            }
+        }
+        public double Area
+        {
+            get
+            {
+                return this.AreaCalculator();
+            }
+        }
+        public Rectengular() : this(5)
+        {
+        }
+        public Rectengular( double side1) : this( side1, 5)
+        {
+        }
+        public Rectengular( double side1, double side2)
+        {
+            this.Side1 = side1;
+            this.Side2 = side2;
+        }
+
+        double AreaCalculator()
+        {
+            return this.Side1 * this.Side2;
+        }
+
+        double Perimeter()
+        {
+            return 2.0 * (this.Side1 + this.Side2);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Account account1 = new Account(150);
-            Account account2 = new Account(1000);
+            double side1, side2;
 
-            Console.WriteLine(Account.bonus);
-        }
+            Console.Write("Enter rectangular sides: \n Firset side: ");
+            side1 = Convert.ToDouble(Console.ReadLine());
 
-        static public int test { get; set; } = 5;
-    }
+            Console.Write(" \n Second side: ");
+            side2 = Convert.ToDouble(Console.ReadLine());
 
-    class Account
-    {
-        public static decimal bonus = 100;
-        public decimal totalSum;
-        public Account(decimal sum)
-        {
-            totalSum = sum + bonus;
+            Rectengular newRec = new Rectengular( side1,  side2);
+
+            Console.WriteLine($"\n Periment: {newRec.Perimert} \n Area: {newRec.Area}");
         }
     }
 }
