@@ -1,11 +1,4 @@
-﻿//Требуется: Описать структуру с именем Train, содержащую следующие поля: название пункта
-//назначения, номер поезда, время отправления.
-//Написать программу, выполняющую следующие действия:
-//- ввод с клавиатуры данных в массив, состоящий из восьми элементов типа Train(записи должны быть
-//упорядочены по номерам поездов);
-//- вывод на экран информации о поезде, номер которого введен с клавиатуры(если таких поездов нет,
-//вывести соответствующее сообщение). 
-using System;
+﻿using System;
 
 namespace StructureTrain
 {
@@ -66,7 +59,7 @@ namespace StructureTrain
 
         class TrainList
         {
-            Train[] comingTrains = new Train[1];
+            Train[] comingTrains = new Train[8];
 
             public TrainList()
             {
@@ -98,16 +91,18 @@ namespace StructureTrain
             {
                 get
                 {
-                    foreach (Train i in comingTrains)
-                        if (i.TrainNumber == index)
+                    for (int i = 0; i < this.comingTrains.Length; i++)
+                        if (this.comingTrains[i].TrainNumber == index)
                             return GetSingleTrainInfo(i);
                     return "There are no trains by this number!";
                 }
             }
 
-            string GetSingleTrainInfo(Train train)
+            string GetSingleTrainInfo(int index)
             {
-                return train.TrainNumber + "\t" + train.DestinationName + "\t" + GetCommonValueTime(train.DepartureTimeHourse) + ":" + GetCommonValueTime(train.DepartureTimeMinutes);
+                return this.comingTrains[index].TrainNumber + "\t" + this.comingTrains[index].DestinationName + 
+                        "\t" + GetCommonValueTime(this.comingTrains[index].DepartureTimeHourse) + 
+                        ":" + GetCommonValueTime(this.comingTrains[index].DepartureTimeMinutes);
             }
 
             public void GetExactTrainInfo(int num)
@@ -120,7 +115,7 @@ namespace StructureTrain
                 SortTrainList(ref this.comingTrains);
 
                 Console.Clear();
-                foreach(Train i in comingTrains)
+                for(int i = 0; i < this.comingTrains.Length; i++)
                     Console.WriteLine(GetSingleTrainInfo(i));
             }
 
@@ -131,8 +126,6 @@ namespace StructureTrain
                 else
                     return num.ToString();
             }
-
-
 
             void SortTrainList(ref Train[] train)
             {
@@ -163,7 +156,6 @@ namespace StructureTrain
             TrainList kievStation = new TrainList();
 
             kievStation.GetComingTrainList();
-
 
             Console.WriteLine("Enter train nubmer which you want to get info: ");
             kievStation.GetExactTrainInfo(Convert.ToInt32(Console.ReadLine()));
