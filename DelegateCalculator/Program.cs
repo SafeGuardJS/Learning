@@ -50,7 +50,6 @@ namespace DelegateCalculator
                     Console.WriteLine("Enter correct operation value");
                     break;
             }
-
         }
     }
 }
